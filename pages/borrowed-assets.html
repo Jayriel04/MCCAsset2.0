@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANDAUE CITY COLLEGE - Borrowed Assets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/asset-dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <img src="../img/mcc.png" alt="Mandaue City College Logo" class="logo">
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item" onclick="window.location.href='dashboard.html'">
+                        <span>Home</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='asset-dashboard.html'">
+                        <span>Asset</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='departments.html'">
+                        <span>Department</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='borrow-application.html'">
+                        <span>Borrow Application</span>
+                    </li>
+                    <li class="nav-item active">
+                        <span>Borrowed Asset</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='maintenance.html'">
+                        <span>Under maintenance</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='inactive-assets.html'">
+                        <span>Inactive asset</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='reports.html'">
+                        <span>Report</span>
+                    </li>
+                </ul>
+                
+                <div class="logout-section">
+                    <div class="nav-item logout" onclick="window.location.href='../index.html'">
+                        <span>Log out</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>MANDAUE CITY COLLEGE ASSET MANAGEMENT SYSTEM</h1>
+            </div>
+            <button class="search-btn" onclick="toggleSearch()">
+                <i class="fas fa-search"></i> Search Assets
+            </button>
+            
+            <!-- Search Section -->
+            <div class="search-section" id="searchSection" style="display: none;">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search by serial number, borrower, department..." class="search-input">
+                    <select id="statusFilter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="borrowed">Borrowed</option>
+                        <option value="overdue">Overdue</option>
+                        <option value="returned">Returned</option>
+                    </select>
+                    <select id="departmentFilter" class="filter-select">
+                        <option value="">All Departments</option>
+                        <option value="technology">School of Technology</option>
+                        <option value="education">School of Education</option>
+                        <option value="business">School of Business</option>
+                        <option value="computer-lab-25">Computer Lab room 25</option>
+                        <option value="computer-lab-22">Computer Lab room 22</option>
+                        <option value="speech-lab">Speech Lab</option>
+                    </select>
+                    <button class="clear-btn" onclick="clearFilters()">Clear</button>
+                </div>
+            </div>
+            
+            <!-- Borrowed Assets Table -->
+            <div class="table-container">
+                <table class="asset-table">
+                    <thead>
+                        <tr>
+                            <th>Serial num</th>
+                            <th>Asset Name</th>
+                            <th>Borrower</th>
+                            <th>Department</th>
+                            <th>Borrowed Date</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ASSET-2023-001</td>
+                            <td>Dell Optiplex 3070</td>
+                            <td>John Doe</td>
+                            <td>School of Technology</td>
+                            <td>2023-09-01</td>
+                            <td>2023-09-15</td>
+                            <td><span class="status-badge borrowed">Borrowed</span></td>
+                            <td>
+                                <button class="action-btn view" onclick="viewAsset('ASSET-2023-001')">View</button>
+                                <button class="action-btn return" onclick="openReturnModal('ASSET-2023-001', 'Dell Optiplex 3070')">Return</button>
+                                <button class="action-btn extend">Extend</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ASSET-2023-002</td>
+                            <td>Projector Epson EB-980</td>
+                            <td>Jane Smith</td>
+                            <td>School of Education</td>
+                            <td>2023-09-05</td>
+                            <td>2023-09-12</td>
+                            <td><span class="status-badge overdue">Overdue</span></td>
+                            <td>
+                                <button class="action-btn view" onclick="viewAsset('ASSET-2023-002')">View</button>
+                                <button class="action-btn return" onclick="openReturnModal('ASSET-2023-002', 'Projector Epson EB-980')">Return</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ASSET-2023-003</td>
+                            <td>Interactive Whiteboard</td>
+                            <td>Mike Johnson</td>
+                            <td>School of Business</td>
+                            <td>2023-09-10</td>
+                            <td>2023-09-17</td>
+                            <td><span class="status-badge borrowed">Borrowed</span></td>
+                            <td>
+                                <button class="action-btn view" onclick="viewAsset('ASSET-2023-003')">View</button>
+                                <button class="action-btn return" onclick="openReturnModal('ASSET-2023-003', 'Interactive Whiteboard')">Return</button>
+                                <button class="action-btn extend">Extend</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ASSET-2023-004</td>
+                            <td>HP LaserJet Printer</td>
+                            <td>Sarah Wilson</td>
+                            <td>Computer Lab room 22</td>
+                            <td>2023-08-28</td>
+                            <td>2023-09-04</td>
+                            <td><span class="status-badge returned">Returned</span></td>
+                            <td>
+                                <button class="action-btn view" onclick="viewAsset('ASSET-2023-004')">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ASSET-2023-005</td>
+                            <td>Cisco Network Switch</td>
+                            <td>Robert Brown</td>
+                            <td>Speech Lab</td>
+                            <td>2023-09-08</td>
+                            <td>2023-09-22</td>
+                            <td><span class="status-badge borrowed">Borrowed</span></td>
+                            <td>
+                                <button class="action-btn view" onclick="viewAsset('ASSET-2023-005')">View</button>
+                                <button class="action-btn return" onclick="openReturnModal('ASSET-2023-005', 'Cisco Network Switch')">Return</button>
+                                <button class="action-btn extend">Extend</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Return Modal -->
+    <div class="modal" id="returnModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Return Asset</h3>
+                <button class="close-modal" onclick="closeReturnModal()">&times;</button>
+            </div>
+            <div class="modal-form">
+                <div class="form-group">
+                    <label for="assetSerial">Serial Number</label>
+                    <input type="text" id="assetSerial" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="assetName">Asset Name</label>
+                    <input type="text" id="assetName" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="returnDate">Return Date</label>
+                    <input type="date" id="returnDate">
+                </div>
+                <div class="form-group">
+                    <label for="condition">Asset Condition</label>
+                    <select id="condition">
+                        <option value="">Select Condition</option>
+                        <option value="excellent">Excellent - No issues</option>
+                        <option value="good">Good - Minor wear</option>
+                        <option value="fair">Fair - Some issues noted</option>
+                        <option value="poor">Poor - Requires maintenance</option>
+                        <option value="damaged">Damaged - Needs repair</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Return Notes</label>
+                    <textarea id="notes" placeholder="Add any notes about the return condition"></textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-cancel" onclick="closeReturnModal()">Cancel</button>
+                <button class="btn btn-submit" onclick="processReturn()">Confirm Return</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/borrowed-assets.js?v=2"></script>
+</body>
+</html>

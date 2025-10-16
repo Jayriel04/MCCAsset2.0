@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANDAUE CITY COLLEGE - Maintenance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/asset-dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <img src="../img/mcc.png" alt="Mandaue City College Logo" class="logo">
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item" onclick="window.location.href='dashboard.html'">
+                        <span>Home</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='asset-dashboard.html'">
+                        <span>Asset</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='departments.html'">
+                        <span>Department</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='borrow-application.html'">
+                        <span>Borrow Application</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='borrowed-assets.html'">
+                        <span>Borrowed Asset</span>
+                    </li>
+                    <li class="nav-item active">
+                        <span>Under maintenance</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='inactive-assets.html'">
+                        <span>Inactive asset</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='reports.html'">
+                        <span>Report</span>
+                    </li>
+                </ul>
+                
+                <div class="logout-section">
+                    <div class="nav-item logout" onclick="window.location.href='../index.html'">
+                        <span>Log out</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>MANDAUE CITY COLLEGE ASSET MANAGEMENT SYSTEM</h1>
+            </div>
+            
+            <div class="maintenance-grid">
+                <div class="maintenance-card">
+                    <div class="maintenance-header">
+                        <h4>Projector Epson EB-980</h4>
+                        <span class="maintenance-priority high">High Priority</span>
+                    </div>
+                    <div class="maintenance-details">
+                        <p><strong>Serial:</strong> ASSET-2023-002</p>
+                        <p><strong>Issue:</strong> Lamp replacement needed</p>
+                        <p><strong>Technician:</strong> Tech Support Team</p>
+                        <p><strong>Started:</strong> March 12, 2024</p>
+                        <p><strong>Expected Completion:</strong> March 20, 2024</p>
+                    </div>
+                    <div class="maintenance-actions">
+                        <button class="btn btn-success">Mark Complete</button>
+                        <button class="btn btn-info">Update Status</button>
+                    </div>
+                </div>
+
+                <div class="maintenance-card">
+                    <div class="maintenance-header">
+                        <h4>Audio System Yamaha</h4>
+                        <span class="maintenance-priority medium">Medium Priority</span>
+                    </div>
+                    <div class="maintenance-details">
+                        <p><strong>Serial:</strong> ASSET-2023-005</p>
+                        <p><strong>Issue:</strong> Speaker replacement and calibration</p>
+                        <p><strong>Technician:</strong> Audio Specialist</p>
+                        <p><strong>Started:</strong> March 10, 2024</p>
+                        <p><strong>Expected Completion:</strong> March 22, 2024</p>
+                    </div>
+                    <div class="maintenance-actions">
+                        <button class="btn btn-success">Mark Complete</button>
+                        <button class="btn btn-info">Update Status</button>
+                    </div>
+                </div>
+
+                <div class="maintenance-card">
+                    <div class="maintenance-header">
+                        <h4>Dell Optiplex 3070</h4>
+                        <span class="maintenance-priority low">Low Priority</span>
+                    </div>
+                    <div class="maintenance-details">
+                        <p><strong>Serial:</strong> ASSET-2023-012</p>
+                        <p><strong>Issue:</strong> Software update and virus scan</p>
+                        <p><strong>Technician:</strong> IT Department</p>
+                        <p><strong>Started:</strong> March 16, 2024</p>
+                        <p><strong>Expected Completion:</strong> March 18, 2024</p>
+                    </div>
+                    <div class="maintenance-actions">
+                        <button class="btn btn-success">Mark Complete</button>
+                        <button class="btn btn-info">Update Status</button>
+                    </div>
+                </div>
+
+                <div class="maintenance-card">
+                    <div class="maintenance-header">
+                        <h4>Canon Camera EOS 80D</h4>
+                        <span class="maintenance-priority high">High Priority</span>
+                    </div>
+                    <div class="maintenance-details">
+                        <p><strong>Serial:</strong> ASSET-2023-004</p>
+                        <p><strong>Issue:</strong> Lens mechanism repair</p>
+                        <p><strong>Technician:</strong> Camera Specialist</p>
+                        <p><strong>Started:</strong> March 14, 2024</p>
+                        <p><strong>Expected Completion:</strong> March 25, 2024</p>
+                    </div>
+                    <div class="maintenance-actions">
+                        <button class="btn btn-success">Mark Complete</button>
+                        <button class="btn btn-info">Update Status</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/maintenance.js"></script>
+</body>
+</html>

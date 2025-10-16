@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANDAUE CITY COLLEGE - Reports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/asset-dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <img src="../img/mcc.png" alt="Mandaue City College Logo" class="logo">
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item" onclick="window.location.href='dashboard.html'">
+                        <span>Home</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='asset-dashboard.html'">
+                        <span>Asset</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='departments.html'">
+                        <span>Department</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='borrow-application.html'">
+                        <span>Borrow Application</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='borrowed-assets.html'">
+                        <span>Borrowed Asset</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='maintenance.html'">
+                        <span>Under maintenance</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='inactive-assets.html'">
+                        <span>Inactive asset</span>
+                    </li>
+                    <li class="nav-item active">
+                        <span>Report</span>
+                    </li>
+                </ul>
+                
+                <div class="logout-section">
+                    <div class="nav-item logout" onclick="window.location.href='../index.html'">
+                        <span>Log out</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>MANDAUE CITY COLLEGE ASSET MANAGEMENT SYSTEM</h1>
+            </div>
+            
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h4>Asset Utilization Report</h4>
+                    <p>Monthly overview of asset usage across departments</p>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Maintenance Summary</h4>
+                    <p>Assets requiring maintenance and repair costs</p>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h4>Department Asset Distribution</h4>
+                    <p>Asset allocation across different departments</p>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-hand-holding"></i>
+                    </div>
+                    <h4>Borrowing Activity Report</h4>
+                    <p>Track borrowing patterns and return rates</p>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h4>Overdue Assets Report</h4>
+                    <p>List of overdue borrowed assets and reminders sent</p>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h4>Asset Value Report</h4>
+                    <p>Total asset value and depreciation analysis</p>
+                    <button class="btn btn-primary">Generate Report</button>
+                </div>
+            </div>
+
+            <!-- Recent Reports Section -->
+            <div class="recent-reports">
+                <h3>Recent Reports</h3>
+                <div class="recent-reports-list">
+                    <div class="recent-report-item">
+                        <div class="report-info">
+                            <h5>Monthly Asset Utilization - March 2024</h5>
+                            <p>Generated on March 16, 2024</p>
+                        </div>
+                        <div class="report-actions">
+                            <button class="btn btn-info btn-sm">Download</button>
+                            <button class="btn btn-secondary btn-sm">View</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-report-item">
+                        <div class="report-info">
+                            <h5>Maintenance Summary - Q1 2024</h5>
+                            <p>Generated on March 15, 2024</p>
+                        </div>
+                        <div class="report-actions">
+                            <button class="btn btn-info btn-sm">Download</button>
+                            <button class="btn btn-secondary btn-sm">View</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-report-item">
+                        <div class="report-info">
+                            <h5>Department Distribution Report - February 2024</h5>
+                            <p>Generated on March 1, 2024</p>
+                        </div>
+                        <div class="report-actions">
+                            <button class="btn btn-info btn-sm">Download</button>
+                            <button class="btn btn-secondary btn-sm">View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/reports.js"></script>
+</body>
+</html>

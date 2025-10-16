@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANDAUE CITY COLLEGE - Departments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/asset-dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <img src="../img/mcc.png" alt="Mandaue City College Logo" class="logo">
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item" onclick="window.location.href='dashboard.html'">
+                        <span>Home</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='asset-dashboard.html'">
+                        <span>Asset</span>
+                    </li>
+                    <li class="nav-item active">
+                        <span>Department</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='borrow-application.html'">
+                        <span>Borrow Application</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='borrowed-assets.html'">
+                        <span>Borrowed Asset</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='maintenance.html'">
+                        <span>Under maintenance</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='inactive-assets.html'">
+                        <span>Inactive asset</span>
+                    </li>
+                    <li class="nav-item" onclick="window.location.href='reports.html'">
+                        <span>Report</span>
+                    </li>
+                </ul>
+                
+                <div class="logout-section">
+                    <div class="nav-item logout" onclick="window.location.href='../index.html'">
+                        <span>Log out</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>MANDAUE CITY COLLEGE ASSET FLOW MANAGEMENT SYSTEM</h1>
+            </div>
+            
+            <!-- Department Selection View -->
+            <div id="departmentView" class="department-view">
+                <!-- Search and Filter Section -->
+                <div class="search-section">
+                    <div class="search-container">
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Search by department..." aria-label="Search departments">
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <select id="departmentFilter" aria-label="Filter by department">
+                                <option value="">All Departments</option>
+                                <option value="technology">School of Technology</option>
+                                <option value="business">School of Business</option>
+                                <option value="education">School of Education</option>
+                                <option value="faculty">Faculty</option>
+                                <option value="clinic">Clinic</option>
+                                <option value="library">Library</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <select id="statusFilter" aria-label="Filter by status">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="maintenance">Under Maintenance</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn btn-primary" type="button" onclick="addAsset()">
+                            <i class="fas fa-plus"></i> Add Asset
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Department List -->
+                <div class="department-list">
+                    <div class="department-item" onclick="showDepartmentAssets('technology')">
+                        <span>School of Technology</span>
+                    </div>
+                    <div class="department-item" onclick="showDepartmentAssets('business')">
+                        <span>School of Business</span>
+                    </div>
+                    <div class="department-item" onclick="showDepartmentAssets('education')">
+                        <span>School of Education</span>
+                    </div>
+                    <div class="department-item" onclick="showDepartmentAssets('faculty')">
+                        <span>Faculty</span>
+                    </div>
+                    <div class="department-item" onclick="showDepartmentAssets('clinic')">
+                        <span>Clinic</span>
+                    </div>
+                    <div class="department-item" onclick="showDepartmentAssets('library')">
+                        <span>Library</span>
+                    </div>
+                    <div class="department-item" onclick="showDepartmentAssets('registrar')">
+                        <span>Registrar</span>
+                    </div>
+                    <div class="department-item" onclick="showDepartmentAssets('saso')">
+                        <span>Saso</span>
+                    </div>
+                    <div class="department-item" onclick="showDepartmentAssets('cashier')">
+                        <span>Cashier</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Department Detail View -->
+            <div id="departmentDetailView" class="department-detail-view" style="display: none;">
+                <div class="department-detail-card">
+                    <div class="department-header">
+                        <button class="back-btn" onclick="showDepartmentList()">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <h2 id="departmentTitle">DEPARTMENT</h2>
+                    </div>
+                    
+                    <div class="department-content" id="departmentContent">
+                        <!-- Content will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asset Detail View -->
+            <div id="assetDetailView" class="asset-detail-view" style="display: none;">
+                <div class="asset-header">
+                    <button class="back-btn" onclick="goBackFromAssets()">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <h2 id="assetTitle">ASSETS</h2>
+                </div>
+                
+                <!-- Asset Table -->
+                <div class="table-container">
+                    <table class="asset-table">
+                        <thead>
+                            <tr>
+                                <th>Serial num</th>
+                                <th>Asset name</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="assetTableBody">
+                            <!-- Assets will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/departments.js"></script>
+</body>
+</html>
